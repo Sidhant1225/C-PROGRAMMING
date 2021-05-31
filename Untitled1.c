@@ -1,20 +1,27 @@
 #include<stdio.h>
-main()
+int main()
 {
-int n,m,i,j,flag=1,sum=0;
-scanf("%d %d",&n,&m);
+int a[100],first,second,i,n;
+scanf("%d",&n);
 
-for(i=n;i<=m;i++)
+for(i=0;i<n;i++)
 {
-for(j=2;j<=i/2;j++)
-{
-flag=1;
-if(i%j==0)
-flag=0;
+scanf("%d",&a[i]);
 }
-if(flag==1)
-    sum=sum+i;
+first=a[0];
+for(i=0;i<n;i++)
+{
+if(a[i]>first)
+{
+second=first;
+first=a[i];
+}
+else if(a[i]>second && a[i]!=first)
+{
+second=a[i];
+}
+}
+printf("largest no is %d",first);
+printf("second largest no is %d",second);
 
-printf("%d ",sum);
-}
 }
